@@ -60,6 +60,11 @@ variable "affinity_rule_name" {
   type = string
 }
 
+variable "content_library" {
+  description = "Name of the content library where the OVF template is stored."
+  default     = null
+}
+
 ## Network Settings
 variable "vcenter_network" {
   type        = string
@@ -79,12 +84,34 @@ variable "net_gateway" {
   type        = string
   description = "Network Gateway"
 }
+
+## Linux Customization Variables
+variable "hw_clock_utc" {
+  description = "Tells the operating system that the hardware clock is set to UTC."
+  type        = bool
+  default     = true
+}
+
 variable "dns_servers" {
   type        = list(string)
   default     = ["8.8.8.8", "8.8.4.4"]
   description = "List of DNS Servers"
 }
+
 variable "domain_name" {
   type        = string
   description = "Domain of your local network"
 }
+
+#Data Disk section
+variable "data_disk" {
+  description = "Storage data disk parameter, example"
+  type        = map(map(string))
+  default     = {}
+}
+
+variable "scsi_controller" {
+  description = "scsi_controller number for the main OS disk."
+  type        = number
+  default     = 0
+ }
