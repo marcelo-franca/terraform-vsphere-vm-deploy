@@ -67,7 +67,7 @@ variable "vcenter_network" {
   description = "Here you will set the name of your network. By default is VM Network but maybe can be another like Production_NET"
 }
 variable "ip_address" {
-  type        = string
+  type        = list
   description = "IP address. The last octets are added automatically"
 }
 variable "netmask" {

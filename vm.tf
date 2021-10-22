@@ -37,8 +37,7 @@ resource "vsphere_virtual_machine" "vm" {
       }
 
       network_interface {
-        # By default, this last octet starts with 20
-        ipv4_address = "${(var.ip_address)}20${count.index}"
+        ipv4_address = "${(var.ip_address)[count.index]}"
         ipv4_netmask = var.netmask
       }
 
