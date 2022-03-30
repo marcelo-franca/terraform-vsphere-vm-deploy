@@ -115,3 +115,12 @@ variable "scsi_controller" {
   type        = number
   default     = 0
  }
+
+ variable "memory_hot_plug" {
+   type   = bool
+   default = false
+ }
+ variable "cpu_hot_plug" {
+   type   = bool
+   default = false
+ }

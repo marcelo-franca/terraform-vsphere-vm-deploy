@@ -17,7 +17,9 @@ resource "vsphere_virtual_machine" "vm" {
   datastore_id     = data.vsphere_datastore.member_datastore.id
 
   num_cpus = var.number_of_vcpu
+  cpu_hot_add_enabled = var.cpu_hot_plug
   memory   = var.memory
+  memory_hot_add_enabled = var.memory_hot_plug
   guest_id = data.vsphere_virtual_machine.template[0].guest_id
 
   scsi_type = data.vsphere_virtual_machine.template[0].scsi_type
